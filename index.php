@@ -41,4 +41,15 @@ class Member
         $this->sendOutput($send);
     }
 
+
+
+    public function ()
+    { 
+	echo 'Hello';
+    }
+
+    public function ()
+    {
+	phpinfo();
+    }
 }
