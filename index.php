@@ -70,4 +70,9 @@ class Member
         }
         $this->sendOutput($send);
     }
+
+	public function testAction ()
+	{
+		echo 'Hello you';
+	}
 }
