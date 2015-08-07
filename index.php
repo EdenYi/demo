@@ -53,4 +53,9 @@ class Member
     {
 	phpinfo();
     }
+
+	public function testAction ()
+	{
+		echo 'Hello you';
+	}
 }
