@@ -11,3 +11,10 @@ Test
 This is new para
 
 This is a link to [baidu](http://www.baidu.com)
+
+---
+This is code 
+
+    function add () {
+      echo '';
+    }
