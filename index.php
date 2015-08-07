@@ -41,8 +41,9 @@ class Member
         $this->sendOutput($send);
     }
 
-
-
+    /**
+    *	Add some commit
+    */
     public function ()
     { 
 	echo 'Hello';
