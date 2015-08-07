@@ -41,21 +41,33 @@ class Member
         $this->sendOutput($send);
     }
 
-    /**
-    *	Add some commit
+   /**
+    * 退出登录
     */
-    public function ()
-    { 
-	echo 'Hello';
-    }
-
-    public function ()
+    public function loginoutAction ()
     {
-	phpinfo();
-    }
+        $send['state']  = false;
+        $params         = $this->filterParams($this->_params);
 
-	public function testAction ()
-	{
-		echo 'Hello you';
-	}
+        $model = new MobileModel();
+
+        $patternArr = Application::app()->getConfig()->application->environment;
+        $configArr = $patternArr->toArray();
+        $pattern = $configArr['mode'];
+
+        // 移动端已修改用户退出方案，这里不论私有云还是公有云，都只退出当前移动终端上的app
+        if ($pattern == 'public') {
+            $res = $model->loginOutPublicCloud($params);
+        } else {
+            $res = $model->loginOutPublicCloud($params);
+        }
+
+        if (!$res) {
+            $send['error'] = 'Loginout failed';
+        } else {
+            $send['state'] = true;
+            $send['data']['message'] = 'success';
+        }
+        $this->sendOutput($send);
+    }
 }
